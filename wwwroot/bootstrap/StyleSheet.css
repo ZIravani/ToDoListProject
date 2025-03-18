@@ -1,0 +1,265 @@
+﻿body {
+    .column-layout
+
+{
+    display: flex;
+    flex-direction: column;
+}
+
+.master-view-container {
+    justify-content: flex-start;
+    align-items: stretch;
+    align-content: flex-start;
+    overflow: hidden;
+    height: 100%;
+}
+
+.row-layout {
+    display: flex;
+}
+
+.group {
+    justify-content: flex-start;
+    align-items: center;
+    align-content: flex-start;
+    gap: 1rem;
+    overflow: hidden;
+}
+
+.group_1 {
+    justify-content: flex-start;
+    align-items: stretch;
+    align-content: flex-start;
+    position: relative;
+    min-width: 50px;
+    min-height: 50px;
+    flex-grow: 1;
+    flex-basis: 0;
+}
+
+.group_2 {
+    justify-content: flex-start;
+    align-items: stretch;
+    align-content: flex-start;
+    overflow: hidden;
+    position: relative;
+    min-width: 50px;
+    min-height: 50px;
+    flex-grow: 1;
+    flex-basis: 0;
+}
+
+.group_3 {
+    background-color: var(--ig-surface-500);
+    justify-content: space-between;
+    align-items: center;
+    align-content: flex-start;
+    position: relative;
+    padding: 16px;
+    min-width: 50px;
+    min-height: 80px;
+}
+
+.group_4 {
+    justify-content: flex-start;
+    align-items: center;
+    align-content: flex-start;
+    position: relative;
+    min-width: 50px;
+    min-height: 50px;
+}
+
+.group_5 {
+    background-color: rgba(256, 256, 256, 0.07);
+    justify-content: flex-start;
+    align-items: center;
+    align-content: flex-start;
+    gap: 24px;
+    position: relative;
+    padding: 24px 16px 16px;
+    height: 100%;
+    min-width: 80px;
+    min-height: 50px;
+    max-height: 100%;
+}
+
+.group_6 {
+    justify-content: flex-start;
+    align-items: stretch;
+    align-content: flex-start;
+    position: relative;
+    width: 480px;
+    min-width: 50px;
+    min-height: 50px;
+    max-width: 480px;
+}
+
+.group_7 {
+    justify-content: flex-start;
+    align-items: stretch;
+    align-content: flex-start;
+    position: relative;
+    min-width: 50px;
+    min-height: 50px;
+}
+
+.app-bar {
+    color: white;
+    background-color: #3F51B5;
+    height: max-content;
+    min-width: min-content;
+}
+
+.view-container {
+    overflow: auto;
+    min-width: 0;
+    min-height: 0;
+    flex-grow: 1;
+    flex-basis: 0;
+}
+
+.icon-button::part(base) {
+    color: white;
+}
+
+.icon-button_1::part(base) {
+    color: white;
+}
+
+.icon-button_2::part(base) {
+    color: white;
+}
+
+.icon-button_3::part(base) {
+    color: white;
+}
+
+.icon-button_4::part(base) {
+    color: white;
+}
+
+.icon-button_5::part(base) {
+    color: white;
+}
+
+.icon {
+    color: white;
+}
+
+.h6 {
+    margin: 0;
+    flex-shrink: 0;
+}
+
+.avatar {
+    --ig-size: var(--ig-size-small);
+    margin: 0 8px 0 0;
+}
+
+.h6_1 {
+    margin: 0 8px 0 0;
+    height: max-content;
+    min-width: min-content;
+}
+
+.icon_1 {
+    --size: 24px;
+    font-size: 24px;
+    width: 24px;
+    height: 24px;
+    color: var(--ig-gray-900);
+}
+
+.avatar_1 {
+    --ig-size: var(--ig-size-small);
+}
+
+.icon_2 {
+    --size: 24px;
+    font-size: 24px;
+    width: 24px;
+    height: 24px;
+}
+
+.avatar_2::part(base) {
+    color: rgba(256, 256, 256, 0.8);
+    background-color: #FE7659;
+}
+
+.avatar_1_1::part(base) {
+    background-color: transparent;
+}
+
+.avatar_1_2::part(base) {
+    background-color: transparent;
+}
+
+.avatar_1_3::part(base) {
+    background-color: transparent;
+}
+
+.avatar_1_4::part(base) {
+    background-color: transparent;
+}
+
+.avatar_1_5::part(base) {
+    background-color: transparent;
+}
+
+.avatar_1_6::part(base) {
+    background-color: transparent;
+}
+
+.avatar_1_7::part(base) {
+    background-color: transparent;
+}
+
+.avatar_1_8::part(base) {
+    background-color: transparent;
+}
+
+.dropdown {
+    left: 0;
+    top: 0;
+    position: absolute;
+    min-width: min-content;
+}
+
+.button-group {
+    height: max-content;
+    min-width: min-content;
+    flex-shrink: 0;
+}
+
+.input {
+    margin: 0 0 16px;
+    height: max-content;
+    min-width: min-content;
+}
+
+.select {
+    margin: 0 16px 0 0;
+    height: max-content;
+    min-width: min-content;
+    flex-grow: 1;
+    flex-basis: 0;
+}
+
+.select_1 {
+    height: max-content;
+    min-width: min-content;
+    flex-grow: 1;
+    flex-basis: 0;
+}
+
+.button {
+    --ig-size: var(--ig-size-medium);
+    margin: 0 16px 16px 0;
+    height: max-content;
+}
+
+.dropdown::part(base) {
+    height: max-content;
+}
+
+}

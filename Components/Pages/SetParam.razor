@@ -1,0 +1,61 @@
+﻿@page "/set-params-async/{Param?}"
+
+<PageTitle>Set Parameters Async</PageTitle>
+
+<h1>Set Parameters Async Example</h1>
+
+<p>
+    Pass a Parameter in the URI of the browser's address bar.
+    For example, add <code>Text</code> to the address.
+</p>
+
+
+<p>@message</p>
+@* Virtualization is a technique for limiting UI rendering to just the parts that are currently visible. For example, virtualization is helpful when the app must render a long list of items 
+   and only a subset of items is required to be visible at any given time. *@
+<Virtualize Items="stringList">
+    <ItemContent>
+        <p>
+            @context
+        </p>
+    </ItemContent>
+     <EmptyContent>
+        <p>
+            There are no strings to display.
+        </p>
+    </EmptyContent> 
+@*     <Placeholder>
+        <p>
+            Loading&hellip;
+        </p>
+    </Placeholder> *@
+</Virtualize>
+
+@code {
+    private string message = "Not set";
+
+    [Parameter]
+    public string? Param { get; set; }
+
+    public override async Task SetParametersAsync(ParameterView parameters)
+    {
+        if (parameters.TryGetValue<string>(nameof(Param), out var value))
+        {
+            if (value is null)
+            {
+                message = "The value of 'Param' is null.";
+            }
+            else
+            {
+                message = $"The value of 'Param' is {value}.";
+            }
+        }
+
+        await base.SetParametersAsync(parameters);
+    }
+
+    private List<string>? stringList=new List<string> { "ssss","dddd","ffff"};
+
+    protected override void OnInitialized() =>
+        stringList ??= ["Here's a string!", "Here's another string!"];
+}

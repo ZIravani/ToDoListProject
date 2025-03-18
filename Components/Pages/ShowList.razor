@@ -1,0 +1,69 @@
+﻿@page "/Show-List"
+@using ToDoListProject.Models
+
+<HeadContent>People List</HeadContent>
+<h3>ShowList</h3>
+
+<ul>
+    @foreach (var person in People)
+    {
+        <li> <Detail @key="person" Info="@person"></Detail></li>
+    }
+</ul>
+
+<input @bind="newPerson" placeholder="Enter a name" />
+<button @onclick="AddPerson">Add</button>
+
+<ul>
+    @foreach (var person in Model.People)
+    {
+        <li>@person</li>
+    }
+</ul>
+<br />
+<p >
+    <label>
+        Select one or more cars:
+        <select @onchange="SelectedCarsChanged" multiple>
+            <option value="audi">Audi</option>
+            <option value="jeep">Jeep</option>
+            <option value="opel">Opel</option>
+            <option value="saab">Saab</option>
+            <option value="volvo">Volvo</option>
+        </select>
+    </label>
+</p>
+
+@* <p class=" col-lg-12">
+    Selected Cars: @(SelectedCars.Count > 0 ? string.Join(", ", SelectedCars) : "None")
+</p> *@
+
+
+
+@code {
+    private List<string> People = new List<string> { "ali", "saman", "amir" };
+
+    private List<string> SelectedCars = new();
+
+    private void SelectedCarsChanged(ChangeEventArgs e)
+    {
+        // Get the selected values
+        var selectedOptions = e.Value as IEnumerable<string>;
+
+        if (selectedOptions != null)
+        {
+            SelectedCars = selectedOptions.ToList();
+        }
+    }
+
+
+    private PeopleModel Model = new PeopleModel();
+    private string newPerson;
+
+    private void AddPerson()
+    {
+        Model.AddPerson(newPerson);
+        newPerson = string.Empty; // Clear the input
+    }
+
+}

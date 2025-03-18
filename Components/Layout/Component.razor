@@ -1,0 +1,176 @@
+﻿@using IgniteUI.Blazor.Controls
+@inherits LayoutComponentBase
+@inject NavigationManager NavigationManager
+
+<div class="column-layout master-view-container">
+	<IgbNavbar class="app-bar" master_view-scope>
+		<IgbIconButton slot="start" Variant="IconButtonVariant.Flat" class="icon-button" master_view-scope>
+			<span class="material-icons icon">
+				dashboard
+			</span>
+			<IgbRipple></IgbRipple>
+		</IgbIconButton>
+		<div class="row-layout group">
+			<h6 class="h6">
+				Task Management
+			</h6>
+		</div>
+		<IgbIconButton slot="end" Variant="IconButtonVariant.Flat" @onclick="@(e => _newTaskDialog!.ToggleAsync())" class="icon-button_1" master_view-scope>
+			<span class="material-icons icon">
+				add_circle
+			</span>
+			<IgbRipple></IgbRipple>
+		</IgbIconButton>
+		<IgbIconButton slot="end" Variant="IconButtonVariant.Flat" class="icon-button_2" master_view-scope>
+			<span class="material-icons icon">
+				share
+			</span>
+			<IgbRipple></IgbRipple>
+		</IgbIconButton>
+		<IgbIconButton slot="end" Variant="IconButtonVariant.Flat" class="icon-button_3" master_view-scope>
+			<span class="material-icons icon">
+				notifications
+			</span>
+			<IgbRipple></IgbRipple>
+		</IgbIconButton>
+		<IgbIconButton slot="end" Variant="IconButtonVariant.Flat" class="icon-button_4" master_view-scope>
+			<span class="material-icons icon">
+				search
+			</span>
+			<IgbRipple></IgbRipple>
+		</IgbIconButton>
+		<IgbIconButton slot="end" Variant="IconButtonVariant.Flat" class="icon-button_5" master_view-scope>
+			<span class="material-icons icon">
+				account_circle
+			</span>
+			<IgbRipple></IgbRipple>
+		</IgbIconButton>
+	</IgbNavbar>
+	<div class="row-layout group_1">
+		<div class="column-layout group_2">
+			<div class="row-layout group_3">
+				<div class="row-layout group_4">
+					<IgbAvatar Initials="FP" Shape="AvatarShape.Circle" class="avatar avatar_2" master_view-scope></IgbAvatar>
+					<h6 class="h6_1">
+						Fintech Project
+					</h6>
+					<IgbIconButton Variant="IconButtonVariant.Flat" @onclick="@(e => _dropdown!.ToggleAsync(_iconButton))" @ref="_iconButton">
+						<span class="material-icons">
+							keyboard_arrow_down
+						</span>
+						<IgbRipple></IgbRipple>
+					</IgbIconButton>
+					<IgbDropdown @ref="_dropdown" class="dropdown" master_view-scope>
+						<IgbDropdownHeader>
+							Projects
+						</IgbDropdownHeader>
+						<IgbDropdownItem>
+							Fintech Project
+						</IgbDropdownItem>
+						<IgbDropdownItem>
+							Project Name 1
+						</IgbDropdownItem>
+						<IgbDropdownItem>
+							Project Name 2
+						</IgbDropdownItem>
+						<IgbDropdownItem>
+							Project Name 3
+						</IgbDropdownItem>
+					</IgbDropdown>
+				</div>
+				<IgbButtonGroup class="button-group" master_view-scope>
+					<IgbToggleButton @onclick="@(() => NavigationManager.NavigateTo("/kanban_view"))">
+						<span class="material-icons">
+							dashboard
+						</span>
+						<span>Kanban</span>
+						<IgbRipple></IgbRipple>
+					</IgbToggleButton>
+					<IgbToggleButton @onclick="@(() => NavigationManager.NavigateTo("/list_view"))">
+						<span class="material-icons">
+							format_list_bulleted
+						</span>
+						<span>List</span>
+						<IgbRipple></IgbRipple>
+					</IgbToggleButton>
+				</IgbButtonGroup>
+			</div>
+			<div class="view-container">
+				@Body
+			</div>
+		</div>
+		<div class="column-layout group_5">
+			<span class="material-icons icon_1">
+				group_add
+			</span>
+			<IgbAvatar Src="assets/Avatar2.png" Shape="AvatarShape.Circle" class="avatar_1 avatar_1_1" master_view-scope></IgbAvatar>
+			<IgbAvatar Src="assets/Avatar6.png" Shape="AvatarShape.Circle" class="avatar_1 avatar_1_2" master_view-scope></IgbAvatar>
+			<IgbAvatar Src="assets/Avatar5.png" Shape="AvatarShape.Circle" class="avatar_1 avatar_1_3" master_view-scope></IgbAvatar>
+			<IgbAvatar Src="assets/Avatar3.png" Shape="AvatarShape.Circle" class="avatar_1 avatar_1_4" master_view-scope></IgbAvatar>
+			<IgbAvatar Src="assets/Avatar7.png" Shape="AvatarShape.Circle" class="avatar_1 avatar_1_5" master_view-scope></IgbAvatar>
+			<IgbAvatar Src="assets/Avatar8.png" Shape="AvatarShape.Circle" class="avatar_1 avatar_1_6" master_view-scope></IgbAvatar>
+			<IgbAvatar Src="assets/Avatar9.png" Shape="AvatarShape.Circle" class="avatar_1 avatar_1_7" master_view-scope></IgbAvatar>
+			<IgbAvatar Src="assets/Avatar10.png" Shape="AvatarShape.Circle" class="avatar_1 avatar_1_8" master_view-scope></IgbAvatar>
+		</div>
+	</div>
+	<IgbDialog CloseOnOutsideClick="true" @ref="_newTaskDialog">
+		<h5 slot="title">
+			Add New Task
+		</h5>
+		<div class="column-layout group_6">
+			<IgbInput Label="Task Title" Outlined="false" class="input" master_view-scope></IgbInput>
+			<div class="row-layout group_7">
+				<IgbSelect Outlined="false" Label="Project" Placeholder="Pick a project" class="select" master_view-scope>
+					<span slot="prefix">
+						<span class="material-icons icon_2">
+							assignment
+						</span>
+					</span>
+					<IgbSelectItem Value="Option">
+						Fintech Project
+					</IgbSelectItem>
+					<IgbSelectItem Value="Option">
+						DataViz Project
+					</IgbSelectItem>
+					<IgbSelectItem Value="Option">
+						Onboarding Project
+					</IgbSelectItem>
+					<IgbSelectItem Value="Option">
+						AppBuilder Project
+					</IgbSelectItem>
+				</IgbSelect>
+				<IgbSelect Outlined="false" Label="Status" Placeholder="Set Status" class="select_1" master_view-scope>
+					<span slot="prefix">
+						<span class="material-icons icon_2">
+							schedule
+						</span>
+					</span>
+					<IgbSelectItem Value="Option">
+						To Do
+					</IgbSelectItem>
+					<IgbSelectItem Value="Option">
+						In Development
+					</IgbSelectItem>
+					<IgbSelectItem Value="Option">
+						Validation
+					</IgbSelectItem>
+					<IgbSelectItem Value="Option">
+						Done
+					</IgbSelectItem>
+				</IgbSelect>
+			</div>
+		</div>
+		<div slot="footer">
+			<IgbButton DisplayType="ButtonBaseType.Button" @onclick="@(e => _newTaskDialog!.ToggleAsync())" class="button" master_view-scope>
+				Create Task
+				<IgbRipple></IgbRipple>
+			</IgbButton>
+		</div>
+	</IgbDialog>
+</div>
+
+@code {
+	private IgbIconButton _iconButton;
+	private IgbDialog _newTaskDialog;
+	private IgbDropdown _dropdown;
+}

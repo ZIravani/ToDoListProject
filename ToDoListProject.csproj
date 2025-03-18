@@ -1,0 +1,15 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="IgniteUI.Blazor.Documents.Core.Trial" Version="24.2.92" />
+    <PackageReference Include="IgniteUI.Blazor.Documents.Excel.Trial" Version="24.2.92" />
+    <PackageReference Include="IgniteUI.Blazor.Trial" Version="24.2.92" />
+  </ItemGroup>
+
+</Project>
