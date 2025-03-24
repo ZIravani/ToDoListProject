@@ -1,0 +1,29 @@
+﻿@page "/editemployee/{id?}"
+@using ToDoListProject.ServiceDomain
+@inject IEmployeeService EmployeeService
+
+
+<h3>EmployeeEdit</h3>
+<hr />
+<EditForm Model="@employee">
+    <div class="form-group row">
+        <label for="Name" class="col-sm-2 col-form-label">Name : </label>
+
+        <div class="col-sm-3">
+            <InputText id="Name" class="form-control" @bind-Value="employee.Name"></InputText>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="BirthDate" class="col-sm-2 col-form-label">BirthDate : </label>
+
+        <div class="col-sm-3">
+            <InputDate id="BirthDate" class="form-control" @bind-Value="employee.BirthDate"></InputDate>
+        </div>
+    </div>
+
+</EditForm>
+<hr />
+<button @onclick="() => EditEmployee(employee.id)">Save</button>
+<a href="/promotion-grid" class="btn-success">Cancel</a>
+
+

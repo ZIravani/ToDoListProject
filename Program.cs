@@ -1,6 +1,7 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Configuration.Memory;
 using ToDoListProject.Components;
+using ToDoListProject.ServiceDomain;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,6 +11,7 @@ builder.Services.AddRazorComponents()
 
 builder.Services.AddIgniteUIBlazor();
 
+builder.Services.AddScoped<IEmployeeService, EmployeeService>(); // Register the service
 
 
 var app = builder.Build();

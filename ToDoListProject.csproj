@@ -10,6 +10,7 @@
     <PackageReference Include="IgniteUI.Blazor.Documents.Core.Trial" Version="24.2.92" />
     <PackageReference Include="IgniteUI.Blazor.Documents.Excel.Trial" Version="24.2.92" />
     <PackageReference Include="IgniteUI.Blazor.Trial" Version="24.2.92" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.QuickGrid" Version="8.0.0" />
   </ItemGroup>
 
 </Project>

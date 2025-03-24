@@ -1,0 +1,73 @@
+﻿@page "/promotion-grid"
+@inject IEmployeeService EmployeeService
+@inject NavigationManager Navigation
+@using Microsoft.AspNetCore.Components.QuickGrid
+@using ToDoListProject.ServiceDomain
+@rendermode InteractiveServer
+
+
+<PageTitle>Promotion Grid</PageTitle>
+
+<h1>Promotion Grid Example</h1>
+<div style="border: 1px solid black; padding: 10px; margin-bottom: 20px;">
+    <QuickGrid Items="people" Pagination="pagination" Class="custom-class">
+        <Paginator State="pagination" />
+
+        <PropertyColumn Property="@(p => p.id)" Sortable="true" />
+        <PropertyColumn Property="@(p => p.Name)" Sortable="true" />
+        <PropertyColumn Property="@(p => p.BirthDate)" Format="yyyy-MM-dd" Sortable="true" />
+        <TemplateColumn Context="people">
+@*             <a href="@($"editemployee/{people.id}")">Edit</a>
+ *@            <button type="button" class="btn btn-primary m-1" @onclick="() => NavigateToEdit(people.id)">Edit</button>
+
+            @* <a href="@($"details?id={people.id}")">Details</a> | *@
+            <button type="button" class="btn btn-danger m-1" @onclick="() => DeleteEmployee(people.id)">Delete</button>
+        </TemplateColumn>
+    </QuickGrid>
+</div>
+<div style="display: flex; flex-direction: column; gap: 20px;">
+    <QuickGrid @ref="movieGrid" Items="filteredMovies">
+        <PropertyColumn Property="@(m => m.Title)" Title="Title">
+            <ColumnOptions>
+                <input type="search" @bind="titleFilter" placeholder="Filter by title" />
+            </ColumnOptions>
+        </PropertyColumn>
+        <PropertyColumn Property="@(m => m.IsDone)" Title="Is Done" />
+
+    </QuickGrid>
+</div>
+@* <Confirm @ref="DeleteConfirmation" ConfirmationChanged="DeleteEmp"></Confirm>
+ *@
+<style>
+    .quickgrid th.sortable {
+        cursor: pointer;
+    }
+
+        .quickgrid th.sortable:hover {
+            background-color: #f5f5f5;
+        }
+
+        .quickgrid th.sortable::after {
+            content: " ▲▼";
+            font-size: 0.8em;
+            opacity: 0.5;
+        }
+
+    .quickgrid th.sorted-asc::after {
+        content: " ▲";
+        opacity: 1;
+    }
+
+    .quickgrid th.sorted-desc::after {
+        content: " ▼";
+        opacity: 1;
+    }
+
+/*     ::deep tr:has(> td:not(:empty)) > td {
+        display: table-cell;
+    }
+
+    ::deep td:empty {
+        display: none;
+    } */
+</style>
